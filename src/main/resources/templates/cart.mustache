@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="#">
+        <title>Cart</title>
+
+        <style type="text/css">
+            * {
+                font-family: 'Roboto', sans-serif;
+                font-size: 15px;
+            }
+            body {
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+            }
+            h1 {
+                margin: 1em 0 0 1.8em;
+                font-size: 1.5em;
+            }
+            .cart-products {
+                margin: 1.6em 0 0 2.7em;
+            }
+            .cart {
+                display: flex;
+                flex-direction: row;
+            }
+            table {
+                border-collapse: collapse;
+            }
+            th {
+                background-color: #307c50;
+                color: white;
+            }
+            th, td {
+                padding: 0.3em 0.5em;
+                width: 7em;
+                height: 1.4em;
+                border: 1px solid black;
+                text-align: left;
+            }
+            .sum-and-button {
+                margin: 3.5em 0 0 2em;
+            }
+            p {
+                font-size: 1.2em;
+            }
+            button {
+                cursor: pointer;
+            }
+            #back-btn {
+                margin-top: 1.15em;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Your cart</h1>
+        <div class="cart">
+
+            <div class="cart-products">
+                <form action="cart" method="GET">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#getCartItems}}
+                            <tr>
+                                <td>{{name}}</td>
+                                <td>{{price}} USD</td>
+                            </tr>
+                        {{/getCartItems}}
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+
+            <div class="sum-and-button">
+                <p>Sum: {{getSum}} USD</p>
+
+                <button id="back-btn" onclick="location.href='shop'">BACK</button>
+            </div>
+
+        </div>
+    </body>
+
+</html>

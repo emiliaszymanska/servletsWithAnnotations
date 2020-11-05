@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="#">
+        <title>Shop</title>
+
+        <style type="text/css">
+            * {
+                font-family: 'Roboto', sans-serif;
+                font-size: 15px;
+            }
+            body {
+                margin: 0;
+            }
+            h1 {
+                margin: 1em 0 0 1.8em;
+                font-size: 1.5em;
+            }
+            .stock-items {
+                margin: 1.65em 0 0 2.7em;
+            }
+            table {
+                border-collapse: collapse;
+            }
+            th {
+                background-color: #307c50;
+                color: white;
+            }
+            th, td {
+                padding: 0.3em 0.5em;
+                width: 7em;
+                height: 1.4em;
+                border: 1px solid black;
+                text-align: left;
+            }
+            .last-column {
+                padding: 0.8em 1.7em;
+                border: none;
+            }
+            button {
+                cursor: pointer;
+            }
+            .buttons {
+                display: flex;
+                flex-direction: row;
+            }
+            .add-btn {
+                margin-right: 0.4em;
+            }
+            #cart-btn {
+                margin: 1.6em 0 0 2.7em;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Available products</h1>
+
+        <div class="stock-items">
+            <form action="shop" method="POST">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#getStock}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>{{price}} USD</td>
+                            <td class="last-column">
+                                <div class="buttons">
+                                    <button type="submit" name="act" value="add-{{id}}" class="add-btn">ADD</button>
+                                    <button type="submit" name="act" value="remove-{{id}}" class="remove-btn">REMOVE</button>
+                                </div>
+                            </td>
+                        </tr>
+                        {{/getStock}}
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+        <button id="cart-btn" onclick="location.href='cart'">YOUR CART</button>
+    </body>
+
+</html>
