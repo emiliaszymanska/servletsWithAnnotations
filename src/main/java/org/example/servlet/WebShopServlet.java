@@ -25,8 +25,9 @@ public class WebShopServlet extends HttpServlet {
         this.stock = new Stock();
         stock.add(new Item(0, "Laptop", 2000.0));
         stock.add(new Item(1, "Book", 40.0));
-        stock.add(new Item(2, "Cellphone", 700.0));
-        stock.add(new Item(3, "Smartwatch", 400.0));
+        stock.add(new Item(2, "Smartphone", 700.0));
+        stock.add(new Item(3, "Printer", 300.0));
+        stock.add(new Item(4, "Smartwatch", 350.0));
 
         getStock();
     }
